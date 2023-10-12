@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="styles.css">
+    <title>Register | School Cafeteria</title>
+    <style>
+        /* Add your CSS for styling the file input and image preview here */
+        label[for="student-id-picture"] {
+            display: block;
+        }
+        #student-id-picture {
+            display: none;
+        }
+        #image-preview {
+            max-width: 100%;
+            display: none;
+        }
+        #cancel-button {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-container">
+            <h1>School Cafeteria</h1>
+            <nav>
+                <a href="index.html">Home</a>
+                <a href="menu.html">Menu</a>
+                <a href="cart.html">Cart</a>
+                <a href="login.html">Login</a>
+                <a href="register.html">Register</a>
+            </nav>
+        </div>
+    </header>
+
+    <div class="container">
+        <div id="register" class="section login-register">
+            <h2>Register</h2>
+            <form id="register-form" enctype="multipart/form-data">
+                <input type="text" id="name" name="name" placeholder="Name" required>
+                <input type="text" id="student-id" name="student_id" placeholder="Student ID" required>
+                <input type="email" id="email" name="email" placeholder="Email" required>
+                <input type="password" id="password" name="password" placeholder="Password" required>
+                <label for="student-id-picture">Import Picture of Student ID:</label>
+                <input type="file" id="student-id-picture" name="student_id_picture" accept="image/*" required>
+                <img id="image-preview" src="" alt="Image Preview" style="max-width: 100%; display: none;">
+                <button type="button" id="register-button" class="cta-button">Register</button>
+                <button type="button" id="cancel-button" class="cta-button">Cancel</button>
+            </form>
+            <p>Already have an account? <a href="login.html">Log in here</a>.</p>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2023 School Cafeteria</p>
+    </footer>
+    
+    <!-- Add JavaScript for file input and image preview (as previously provided) -->
+    <script>
+        const fileInput = document.getElementById("student-id-picture");
+        const imagePreview = document.getElementById("image-preview");
+        const cancelButton = document.getElementById("cancel-button");
+
+        fileInput.addEventListener("change", function () {
+            const file = fileInput.files[0];
+
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function (e) {
+                    imagePreview.src = e.target.result;
+                    imagePreview.style.display = "block";
+                    cancelButton.style.display = "block";
+                };
+                reader.readAsDataURL(file);
+            } else {
+                imagePreview.src = "";
+                imagePreview.style.display = "none";
+                cancelButton.style.display = "none";
+            }
+        });
+
+        cancelButton.addEventListener("click", function () {
+            // Clear the file input and hide the image preview and cancel button
+            fileInput.value = "";
+            imagePreview.src = "";
+            imagePreview.style.display = "none";
+            cancelButton.style.display = "none";
+        });
+    </script>
+
+    <!-- Add your other scripts (script.js and register.js) here -->
+    <script src="script.js"></script>
+    <script src="register.js"></script>
+</body>
+</html>

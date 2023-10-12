@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="styles.css">
+    <title>Checkout - School Cafeteria</title>
+</head>
+<body>
+    <header>
+        <!-- Header content as in the previous examples -->
+    </header>
+
+    <div class="container">
+        <h1>Checkout</h1>
+        <div id="cart-details">
+            <!-- Display the items in the cart with quantities and prices -->
+            <table>
+                <thead>
+                    <tr>
+                        <th>Item</th>
+                        <th>Quantity</th>
+                        <th>Price</th>
+                    </tr>
+                </thead>
+                <tbody id="checkout-items">
+                    <!-- Cart items will be dynamically added here -->
+                </tbody>
+            </table>
+        </div>
+
+        <div id="order-summary">
+            <h2>Order Summary</h2>
+            <p id="total-item">Total Items: 0</p>
+            <p id="total-price">Total Price: $0</p>
+            <button id="place-order" class="place-order-button" onclick="window.location.href='place_order.html'">Place Order</button>
+                
+        </div>
+    </div>
+
+    <footer>
+        <!-- Footer content as in the previous examples -->
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
